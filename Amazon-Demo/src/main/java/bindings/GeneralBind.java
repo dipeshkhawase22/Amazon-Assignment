@@ -73,7 +73,7 @@ public class GeneralBind extends Reporter {
 		try {		
 			String dir = System.getProperty("user.dir");
 			//url = new URL("http://" + "192.168.1.5" + ":" + capData.get("Port") + "/wd/hub");
-			url = new URL("http://192.168.1.5:4723/wd/hub");
+			url = new URL("http://127.0.0.0:4723/wd/hub");
 			switch (capData.get("PlatformName").toLowerCase()) {
 			case "android":
 				caps.setCapability(MobileCapabilityType.PLATFORM_NAME, capData.get("PlatformName"));

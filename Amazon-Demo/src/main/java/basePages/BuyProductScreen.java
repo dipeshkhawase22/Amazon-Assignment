@@ -50,17 +50,6 @@ public class BuyProductScreen extends AmazonBind{
 		this.test = test;
 		this.capData1 = capData1;
 		prop = new Properties();
-		try {
-			if (capData1.get("PlatformName").equalsIgnoreCase("Android")) {
-				prop.load(new FileInputStream(new File("./Locators/Android/checkoutPage.properties")));
-			}
-		} 
-		catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} 
-		catch (IOException e) {
-			e.printStackTrace();
-		}
 	}
 
 	//PRICE VALIDATION
