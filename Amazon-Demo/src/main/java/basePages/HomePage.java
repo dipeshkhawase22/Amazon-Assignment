@@ -12,10 +12,10 @@ import com.relevantcodes.extentreports.ExtentTest;
 
 import bindings.AmazonBind;
 import io.appium.java_client.MobileDriver;
-import basePages.HomeScreen;
+import basePages.HomePage;
 import utilities.ExcelMaker;
 
-public class HomeScreen extends AmazonBind {
+public class HomePage extends AmazonBind {
 
 	private static final String LANGUAGE_SELECTION = "languageSelectionPopUp";
 	private static final String ENGLISH_SETTINGS = "languageEnglishSettings";
@@ -38,7 +38,7 @@ public class HomeScreen extends AmazonBind {
 	private static Properties prop;
 	public Map<String, String> capData1 = new HashMap<String, String>();
 
-	public HomeScreen(MobileDriver<?> driver, ExtentTest test, Map<String, String> capData1) {
+	public HomePage(MobileDriver<?> driver, ExtentTest test, Map<String, String> capData1) {
 		this.driver = driver;
 		this.test = test;
 		this.capData1 = capData1;
@@ -54,7 +54,7 @@ public class HomeScreen extends AmazonBind {
 		}
 	}
 
-	public HomeScreen selectLanguage() {
+	public HomePage selectLanguage() {
 		verifyText(LANGUAGE_SELECTION, languageSelectionPopUp);
 		verifyElementIsDisplayed(languageSelectionPopUp);
 		verifyText(ENGLISH_SETTINGS, languageEnglishSettings);
@@ -66,7 +66,7 @@ public class HomeScreen extends AmazonBind {
 		return this;
 	}
 
-	public HomeScreen validateHomePage() {
+	public HomePage validateHomePage() {
 		verifyText(AMAZON_LOGO, amazonHomeLogo);
 		verifyElementIsDisplayed(amazonHomeLogo);
 		verifyText(MIC_BUTTON, microphoneButton);
@@ -77,7 +77,7 @@ public class HomeScreen extends AmazonBind {
 		return this;
 	}
 
-	public HomeScreen validateLogin() {
+	public HomePage validateLogin() {
 		ExcelMaker excelFetch = new ExcelMaker();
 		Map<String, String> signinDetailsMap = excelFetch.getDataFromExcel("Login_And_Place_Order_TC01", "account1");
 		verifyText(MENU_BUTTON, menuButton);
@@ -97,7 +97,7 @@ public class HomeScreen extends AmazonBind {
 		return this;
 	}
 
-	public HomeScreen searchProduct() throws InterruptedException {
+	public HomePage searchProduct() throws InterruptedException {
 		ExcelMaker excelFetch = new ExcelMaker();
 		Map<String, String> searchData = excelFetch.getDataFromExcel("Login_And_Place_Order_TC01", "account1");
 		verifyText(SEARCH_BAR, searchBar);
@@ -114,7 +114,7 @@ public class HomeScreen extends AmazonBind {
 		return this;
 	}
 
-	public HomeScreen clearCart() throws InterruptedException {
+	public HomePage clearCart() throws InterruptedException {
 		verifyText(CART_COUNT, cartCount);
 		verifyElementIsDisplayed(cartCount);
 		int cartCount=Integer.parseInt(getText("cartCount"));

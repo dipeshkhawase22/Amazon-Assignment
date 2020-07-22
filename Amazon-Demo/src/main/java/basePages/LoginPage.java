@@ -12,10 +12,10 @@ import com.relevantcodes.extentreports.ExtentTest;
 
 import bindings.AmazonBind;
 import io.appium.java_client.MobileDriver;
-import basePages.LoginScreen;
+import basePages.LoginPage;
 import utilities.ExcelMaker;
 
-public class LoginScreen extends AmazonBind {
+public class LoginPage extends AmazonBind {
 
 	private static final String SIGNIN_BUTTON = "signInButtonNavigation";
 	private static final String EMAIL = "emailField";
@@ -24,7 +24,7 @@ public class LoginScreen extends AmazonBind {
 	private static Properties prop;
 	public Map<String, String> capData1 = new HashMap<String, String>();
 
-	public LoginScreen(MobileDriver driver, ExtentTest test, Map<String, String> capData1) {
+	public LoginPage(MobileDriver driver, ExtentTest test, Map<String, String> capData1) {
 		this.driver = driver;
 		this.test = test;
 		this.capData1 = capData1;
@@ -42,7 +42,7 @@ public class LoginScreen extends AmazonBind {
 		}
 	}
 
-	public LoginScreen signIn() throws InterruptedException {
+	public LoginPage signIn() throws InterruptedException {
 		ExcelMaker excelFetch = new ExcelMaker();
 		Map<String, String> signinDetailsMap = excelFetch.getDataFromExcel("Login_And_Place_Order_TC01", "account1");
 		System.out.println("map" + signinDetailsMap);

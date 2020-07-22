@@ -14,10 +14,10 @@ import com.relevantcodes.extentreports.ExtentTest;
 
 import bindings.AmazonBind;
 import io.appium.java_client.MobileDriver;
-import basePages.ProductScreen;
+import basePages.ProductPage;
 import bindings.GeneralBind;
 
-public class ProductScreen extends AmazonBind {
+public class ProductPage extends AmazonBind {
 
 	private static final String PRODUCT_TITLE = "productTitle";
 	private static final String PRODUCT_REVIEW = "productReview";
@@ -31,7 +31,7 @@ public class ProductScreen extends AmazonBind {
 	private static Properties prop;
 	public Map<String, String> capData1 = new HashMap<String, String>();
 
-	public ProductScreen(MobileDriver driver, ExtentTest test, Map<String, String> capData1) {
+	public ProductPage(MobileDriver driver, ExtentTest test, Map<String, String> capData1) {
 		this.driver = driver;
 		this.test = test;
 		this.capData1 = capData1;
@@ -48,7 +48,7 @@ public class ProductScreen extends AmazonBind {
 	}
 
 	//SEARCH PRODUCT
-	public ProductScreen validateSearchResultPage() throws InterruptedException {
+	public ProductPage validateSearchResultPage() throws InterruptedException {
 		swipeFullFromBottomToTop(p1);
 		GeneralBind.productNameSearchResults=getText(prodSearchPageTitle);
 		String[] fullPrice=getText(prodSearchPagePrice).split(" ");
@@ -65,7 +65,7 @@ public class ProductScreen extends AmazonBind {
 		return this;
 	}
 
-	public ProductScreen validateProductScreen() {		
+	public ProductPage validateProductScreen() {		
 		verifyText(PRODUCT_TITLE, productTitle);
 		verifyElementIsDisplayed(productTitle);
 		verifyText(PRODUCT_REVIEW, productReview);
@@ -101,7 +101,7 @@ public class ProductScreen extends AmazonBind {
 		return this;
 	}
 
-	public ProductScreen addToCart() throws InterruptedException {
+	public ProductPage addToCart() throws InterruptedException {
 		verifyText(CART_COUNT, cartCount);
 		verifyElementIsDisplayed(cartCount);
 		int cartCountBefore=Integer.parseInt(getText(cartCount));
@@ -115,7 +115,7 @@ public class ProductScreen extends AmazonBind {
 		return this;
 	}
 
-	public ProductScreen navigateToShoppingCart() {
+	public ProductPage navigateToShoppingCart() {
 		verifyText(CART_BUTTON, cartButton);
 		verifyElementIsDisplayed(cartButton);
 		click(cartButton);

@@ -14,11 +14,11 @@ import com.relevantcodes.extentreports.ExtentTest;
 import bindings.AmazonBind;
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.MobileDriver;
-import basePages.BuyProductScreen;
+import basePages.BuyProductPage;
 import utilities.ExcelMaker;
 import bindings.GeneralBind;
 
-public class BuyProductScreen extends AmazonBind{
+public class BuyProductPage extends AmazonBind{
 
 	private static final String SHOPPING_CART_NAME = "productNameShoppingCart";
 	private static final String SHOPPING_CART_PRICE = "productPriceShoppingCart";
@@ -45,7 +45,7 @@ public class BuyProductScreen extends AmazonBind{
 	private static Properties prop;
 	public Map<String, String> capData1 = new HashMap<String, String>();
 
-	public BuyProductScreen(MobileDriver driver, ExtentTest test, Map<String, String> capData1) {
+	public BuyProductPage(MobileDriver driver, ExtentTest test, Map<String, String> capData1) {
 		this.driver = driver;
 		this.test = test;
 		this.capData1 = capData1;
@@ -53,7 +53,7 @@ public class BuyProductScreen extends AmazonBind{
 	}
 
 	//PRICE VALIDATION
-	public BuyProductScreen validateShoppingCart() {
+	public BuyProductPage validateShoppingCart() {
 		verifyText(SHOPPING_CART_NAME, productNameShoppingCart);
 		verifyElementIsDisplayed(productNameShoppingCart);
 		verifyStep("Shopping cart page displayed", "PASS");
@@ -80,14 +80,14 @@ public class BuyProductScreen extends AmazonBind{
 		return this;
 	}
 
-	public BuyProductScreen proceedtoBuy() {
+	public BuyProductPage proceedtoBuy() {
 		verifyText(BUY_PRODUCT, proceedToBuy);
 		verifyElementIsDisplayed(proceedToBuy);
 		click(proceedToBuy);
 		return this;
 	}
 
-	public BuyProductScreen selectShippingAddress() {
+	public BuyProductPage selectShippingAddress() {
 		verifyText(SHIPPING_ADDRESS, ShippingAddress);
 		verifyElementIsDisplayed(ShippingAddress);
 		String address=getText(ShippingAddress);
@@ -101,7 +101,7 @@ public class BuyProductScreen extends AmazonBind{
 		return this;
 	}
 
-	public BuyProductScreen selectPayment() {
+	public BuyProductPage selectPayment() {
 		ExcelMaker excelFetch = new ExcelMaker();
 		Map<String, String> cvvData = excelFetch.getDataFromExcel("Login_And_Place_Order_TC01", "account1");
 		swipeFullFromBottomToTop(p1);		
@@ -120,7 +120,7 @@ public class BuyProductScreen extends AmazonBind{
 	}
 
 	//SKIP PRIME MEMBERSHIP PAGE
-	public BuyProductScreen selectPrimeMember() throws InterruptedException {
+	public BuyProductPage selectPrimeMember() throws InterruptedException {
 		if(verifyIsDisplayed(NoThanksButton))
 		{
 			click(NoThanksButton);
@@ -129,7 +129,7 @@ public class BuyProductScreen extends AmazonBind{
 	}
 
 	//VALIDATE PRICE BREAKDOWN
-	public BuyProductScreen validateCheckoutPage() throws InterruptedException {
+	public BuyProductPage validateCheckoutPage() throws InterruptedException {
 		verifyStep("Checkout page displayed", "PASS");
 		swipeFullFromBottomToTop(p1);
 		verifyText(CHECKOUT_PRICE_TOTAL, checkoutTotalPrice);

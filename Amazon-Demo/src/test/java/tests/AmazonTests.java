@@ -5,10 +5,10 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import bindings.AmazonBind;
-import basePages.BuyProductScreen;
-import basePages.HomeScreen;
-import basePages.LoginScreen;
-import basePages.ProductScreen;
+import basePages.BuyProductPage;
+import basePages.HomePage;
+import basePages.LoginPage;
+import basePages.ProductPage;
 
 public class AmazonTests extends AmazonBind { 
 
@@ -44,24 +44,24 @@ public class AmazonTests extends AmazonBind {
 			tcName = testCaseName;
 			testDescription = "Validate the login and place order scenario in Amazon Android mobile app";
 			startTestReport();
-			LoginScreen login = new LoginScreen(driver, test, capData);
+			LoginPage login = new LoginPage(driver, test, capData);
 			login.signIn();
 			
-			HomeScreen home=new HomeScreen(driver, test, capData);
+			HomePage home=new HomePage(driver, test, capData);
 			home.selectLanguage();
 			home.validateLogin();
 			home.selectLanguage();
 			home.clearCart();
 			home.searchProduct();
 
-			ProductScreen pdp=new ProductScreen(driver, test, capData);
+			ProductPage pdp=new ProductPage(driver, test, capData);
 			pdp.validateSearchResultPage();
 			home.selectLanguage();
 			pdp.validateProductScreen();
 			pdp.addToCart();
 			pdp.navigateToShoppingCart();
 
-			BuyProductScreen checkout=new BuyProductScreen(driver, test, capData);
+			BuyProductPage checkout=new BuyProductPage(driver, test, capData);
 			checkout.validateShoppingCart();
 			checkout.proceedtoBuy();
 			checkout.selectShippingAddress();

@@ -88,7 +88,6 @@ public class GeneralBind extends Reporter {
 				caps.setCapability("appActivity","com.amazon.mShop.home.HomeActivity");
 				driver = new AndroidDriver<MobileElement>(url, caps);
 				break;
-
 			default:
 				break;
 			}
