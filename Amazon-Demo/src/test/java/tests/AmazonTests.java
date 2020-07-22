@@ -5,10 +5,10 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import bindings.AmazonBind;
-import basePages.BuyProductPage;
-import basePages.HomePage;
-import basePages.LoginPage;
-import basePages.ProductPage;
+import pages.BuyProductPage;
+import pages.HomePage;
+import pages.LoginPage;
+import pages.ProductPage;
 
 public class AmazonTests extends AmazonBind { 
 

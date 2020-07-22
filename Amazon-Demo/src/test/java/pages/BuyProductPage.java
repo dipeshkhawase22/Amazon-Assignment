@@ -1,4 +1,4 @@
-package basePages;
+package pages;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -14,7 +14,7 @@ import com.relevantcodes.extentreports.ExtentTest;
 import bindings.AmazonBind;
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.MobileDriver;
-import basePages.BuyProductPage;
+import pages.BuyProductPage;
 import utilities.ExcelMaker;
 import bindings.GeneralBind;
 

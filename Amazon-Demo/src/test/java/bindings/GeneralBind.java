@@ -153,11 +153,15 @@ public class GeneralBind extends Reporter {
 		}
 		return val;
 	}
+	
+	public void waitFor(int val) {
+		driver.manage().timeouts().implicitlyWait(val, TimeUnit.SECONDS);
+	}
 
 	public void verifyElementIsDisplayed(String property) {
 		MobileElement element=null;
 		try {
-			driver.manage().timeouts().implicitlyWait(25, TimeUnit.SECONDS);
+			waitFor(25);
 			element = (MobileElement) driver.findElement(getLocator(property));
 			element.isDisplayed();
 		}
@@ -182,10 +186,10 @@ public class GeneralBind extends Reporter {
 	public void verifyElementIsPresent(String property, long timeoutInSecs){
 		try{
 			long startTime = System.currentTimeMillis();
-			driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+			waitFor(5);
 			while (System.currentTimeMillis() < (startTime + (timeoutInSecs * 1000))) {
 				if (verifyIsDisplayed(property)){
-					driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+					waitFor(40);
 					return;
 				}
 			}
@@ -215,10 +219,10 @@ public class GeneralBind extends Reporter {
 	public void verifyElementIsNotPresent(String property, long timeoutInSecs) {
 		try{
 			long startTime = System.currentTimeMillis();
-			driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+			waitFor(5);
 			while (System.currentTimeMillis() < (startTime + (timeoutInSecs * 1000))) {
 				if (verifyIsDisplayed(property)) {
-					driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+					waitFor(40);
 					return;
 				}
 			}
@@ -412,7 +416,7 @@ public class GeneralBind extends Reporter {
 	}
 
 	public boolean verifyElement(String property) {
-		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+		waitFor(5);
 		boolean present = true;
 		try {
 			driver.findElement(getLocator(property));

@@ -1,4 +1,4 @@
-package basePages;
+package pages;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -12,7 +12,7 @@ import com.relevantcodes.extentreports.ExtentTest;
 
 import bindings.AmazonBind;
 import io.appium.java_client.MobileDriver;
-import basePages.HomePage;
+import pages.HomePage;
 import utilities.ExcelMaker;
 
 public class HomePage extends AmazonBind {
